@@ -9,9 +9,9 @@ def load_data(file_path):
     Load the dataset into a Pandas DataFrame.
     """
     if file_path.endswith('.xlsx') or file_path.endswith('.xls'):
-        data = pd.read_excel(file_path)
+        data = pd.read_excel(file_path, engine='openpyxl')  # Use the appropriate engine for .xlsx files
     elif file_path.endswith('.csv'):
-        data = pd.read_csv(file_path)
+        data = pd.read_csv(file_path, encoding='utf-8')
     return data
 
 def clean_data(df, numeric_columns=None):
